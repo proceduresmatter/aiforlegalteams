@@ -1,0 +1,402 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #F5F3EF;
+  --ink: #1A1A1A;
+  --muted: #5E646B;
+  --divider: #D8D6D2;
+  --holo: linear-gradient(90deg, #B8C6FF 0%, #DCC6FF 50%, #AEE0FF 100%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Holographic accent line */
+.holo-line {
+  background: var(--holo);
+}
+
+/* Button with holographic border */
+.btn-holo {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--bg), var(--bg)) padding-box,
+    var(--holo) border-box;
+  transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-holo:hover {
+  background:
+    linear-gradient(#eceae6, #eceae6) padding-box,
+    var(--holo) border-box;
+}
+
+/* Primary solid button */
+.btn-primary {
+  background: var(--ink);
+  color: var(--bg);
+  transition: opacity 0.2s ease;
+}
+
+.btn-primary:hover {
+  opacity: 0.82;
+}
+
+/* Holographic animated text */
+.holo-text {
+  background: linear-gradient(120deg, #B8C6FF 0%, #DCC6FF 25%, #C8FFE8 50%, #AEE0FF 75%, #E8C6FF 100%);
+  background-size: 250% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: holo-shift 4s linear infinite;
+}
+
+/* Holographic underline — text stays readable, holo line underneath */
+.holo-underline {
+  background-image: linear-gradient(90deg, #B8C6FF 0%, #DCC6FF 50%, #AEE0FF 100%);
+  background-size: 100% 2px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  padding-bottom: 3px;
+}
+
+@keyframes holo-shift {
+  0%   { background-position: 0% center; }
+  100% { background-position: 250% center; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes orbit-cw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes orbit-ccw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+.hero-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Smooth underline links */
+.link-subtle {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--divider);
+  transition: text-decoration-color 0.15s ease;
+}
+
+.link-subtle:hover {
+  text-decoration-color: var(--ink);
+}
+
+/* ── Scroll fade-up animation ── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Bento grid ── */
+.bento-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .bento-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "card1 card1 card2 card3"
+      "card4 card4 card5 card5";
+  }
+}
+
+/* ── Bento card with holographic hover border ── */
+.bento-card {
+  position: relative;
+  border: 1.5px solid #D8D6D2;
+  background: #F5F3EF;
+  padding: 1.75rem;
+  transition: transform 0.3s ease;
+}
+
+.bento-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1.5px;
+  background: linear-gradient(135deg, #B8C6FF, #DCC6FF, #AEE0FF);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.bento-card:hover::before {
+  opacity: 0.3;
+}
+
+.bento-card:hover {
+  transform: translateY(-2px);
+  background: rgba(248, 246, 254, 1);
+}
+
+/* Nav ghost button — holo border on hover (for dark nav bg) */
+.btn-nav-ghost {
+  color: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.2s ease;
+}
+
+.btn-nav-ghost:hover {
+  color: #1A1A1A;
+  border: 1px solid transparent;
+  background: linear-gradient(90deg, #B8C6FF, #DCC6FF, #AEE0FF);
+}
+
+/* Hero ghost button — holographic border on hover */
+.btn-hero-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-hero-ghost:hover {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(rgba(184, 198, 255, 0.12), rgba(184, 198, 255, 0.12)) padding-box,
+    linear-gradient(90deg, #B8C6FF, #DCC6FF, #AEE0FF) border-box;
+}
+
+/* Accordion row — holo left border on hover */
+.accordion-row {
+  border-left: 1.5px solid rgba(255,255,255,0.08);
+  padding-left: 1rem;
+  background: transparent;
+  transition: background 0.25s ease;
+}
+
+.accordion-row:hover {
+  background:
+    linear-gradient(rgba(184,198,255,0.05), rgba(184,198,255,0.05)) padding-box,
+    linear-gradient(180deg, #B8C6FF, #DCC6FF, #AEE0FF) border-box;
+  border-left-color: transparent;
+}
+
+.accordion-row:focus {
+  outline: none;
+}
+
+/* accent card variant – always has subtle holo tint */
+.bento-card-accent {
+  background: linear-gradient(135deg, rgba(184,198,255,0.08), rgba(220,198,255,0.05));
+  border-color: rgba(184,198,255,0.3);
+}
+
+/* ── Eisberg hero — edge-dissolve + holo hover ── */
+.eisberg-hero-wrap {
+  position: relative;
+  overflow: visible;
+}
+
+/* Holo aura that glows in on hover */
+.eisberg-hero-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -25%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(184, 198, 255, 0.22) 0%,
+    rgba(220, 198, 255, 0.12) 32%,
+    rgba(174, 224, 255, 0.05) 55%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.eisberg-hero-wrap:hover::before {
+  opacity: 1;
+}
+
+.eisberg-hero-img {
+  display: block;
+  position: relative;
+  z-index: 1;
+  -webkit-mask-image: radial-gradient(
+    ellipse 72% 78% at 50% 48%,
+    black 18%,
+    rgba(0, 0, 0, 0.55) 36%,
+    rgba(0, 0, 0, 0.10) 52%,
+    transparent 64%
+  );
+  mask-image: radial-gradient(
+    ellipse 72% 78% at 50% 48%,
+    black 18%,
+    rgba(0, 0, 0, 0.55) 36%,
+    rgba(0, 0, 0, 0.10) 52%,
+    transparent 64%
+  );
+  transition: filter 0.55s ease, transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  object-fit: cover;
+}
+
+.eisberg-hero-wrap:hover .eisberg-hero-img {
+  filter:
+    drop-shadow(0 0 22px rgba(184, 198, 255, 0.60))
+    drop-shadow(0 0 55px rgba(220, 198, 255, 0.28))
+    brightness(1.07)
+    saturate(1.10);
+  transform: scale(1.03);
+}
+
+/* ── Glassmorphism photo card ── */
+.glass-photo-card {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease;
+  box-shadow:
+    0 20px 55px rgba(26, 26, 26, 0.10),
+    0 0 0 1px rgba(184, 198, 255, 0.22);
+}
+
+.glass-photo-card:hover {
+  transform: translateY(-4px) scale(1.008);
+  box-shadow:
+    0 28px 70px rgba(26, 26, 26, 0.13),
+    0 0 0 1px rgba(184, 198, 255, 0.22),
+    0 0 32px rgba(184, 198, 255, 0.06);
+}
+
+.glass-photo-card .glass-image {
+  display: block;
+  width: 100%;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s ease;
+}
+
+.glass-photo-card:hover .glass-image {
+  transform: scale(1.04);
+  filter: brightness(1.05) saturate(1.06);
+}
+
+/* Diagonal sheen — bright top-left corner */
+.glass-photo-card .glass-sheen {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.20) 0%,
+    rgba(184, 198, 255, 0.07) 38%,
+    transparent 62%
+  );
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.glass-photo-card:hover .glass-sheen {
+  opacity: 0.6;
+}
+
+/* Soft gradient fade at bottom */
+.glass-photo-card .glass-frost {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 18%;
+  background: linear-gradient(to bottom, transparent, rgba(15, 20, 40, 0.18));
+  pointer-events: none;
+  transition: opacity 0.45s ease;
+}
+
+.glass-photo-card:hover .glass-frost {
+  opacity: 0.6;
+}
+
+/* Holo top accent line */
+.glass-photo-card .glass-top-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #B8C6FF, #DCC6FF, #AEE0FF);
+  opacity: 0.22;
+  transition: opacity 0.4s ease;
+}
+
+.glass-photo-card:hover .glass-top-line {
+  opacity: 0.38;
+}
+
+/* ── Coaster flip card ── */
+.coaster-flip {
+  perspective: 700px;
+  cursor: pointer;
+}
+
+.coaster-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.coaster-flip:hover .coaster-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.coaster-front,
+.coaster-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.coaster-back {
+  transform: rotateY(180deg);
+}

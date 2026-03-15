@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+
+# AI and LLM crawlers — welcome
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+Sitemap: https://www.aiforlegalteams.com/sitemap.xml
+
+# LLM context file
+# https://www.aiforlegalteams.com/llms.txt
