@@ -30,9 +30,65 @@ function FadeUp({ children, delay = 0, className = '' }: { children: React.React
   )
 }
 
-function SectionFade({ from, to }: { from: string; to: string }) {
-  return <div style={{ height: '140px', background: `linear-gradient(to bottom, ${from}, ${to})`, pointerEvents: 'none' }} />
+function SectionFade({ from, to, height = '140px' }: { from: string; to: string; height?: string }) {
+  return <div style={{ height, background: `linear-gradient(to bottom, ${from}, ${to})`, pointerEvents: 'none' }} />
 }
+
+const steps = [
+  {
+    num: '01',
+    title: 'AI Literacy and Team Readiness',
+    icon: '<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>',
+    bullets: [
+      'Lawyers understand what AI can and cannot do',
+      'Teams learn to critically evaluate AI outputs',
+      'Confidentiality, hallucination, and bias risks are clear',
+    ],
+    outcome: 'Your team works with AI confidently and critically',
+  },
+  {
+    num: '02',
+    title: 'Use Case Identification in Legal Workflows',
+    icon: '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
+    bullets: [
+      'Real workflows are analyzed, not hypothetical scenarios',
+      'High-value use cases are identified and prioritized',
+      'Low-risk starting points for adoption are defined',
+    ],
+    outcome: 'AI is applied where it creates real value in legal work',
+  },
+  {
+    num: '03',
+    title: 'Tool Integration and Workflow Adaptation',
+    icon: '<polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/>',
+    bullets: [
+      'Tools are selected based on your actual needs',
+      'Workflows are adapted around AI',
+      'Review points and human oversight are built in',
+    ],
+    outcome: 'AI becomes part of how legal work gets done',
+  },
+]
+
+const governance = {
+  title: 'Responsible AI Governance & EU AI Act Readiness',
+  bullets: [
+    'Governance is embedded throughout the entire process',
+    'Decision ownership is clearly defined at every stage',
+    'Documentation meets EU AI Act requirements',
+    'AI use remains traceable and accountable',
+  ],
+  tagline: 'AI adoption through structure, procedures and decision clarity. Procedures matter.',
+}
+
+const challenges = [
+  { quote: '"We tried ChatGPT but lawyers don\'t trust the outputs."', label: 'Trust gap', icon: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>' },
+  { quote: '"We need to be EU AI Act compliant but don\'t know what that means in practice."', label: 'Compliance uncertainty', icon: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>' },
+  { quote: '"Who is responsible when AI makes a mistake in a legal matter?"', label: 'Accountability gap', icon: '<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>' },
+  { quote: '"We bought the tool. Nobody uses it properly."', label: 'Adoption failure', icon: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>' },
+  { quote: '"Our GC wants AI. Our lawyers are afraid of it."', label: 'Readiness gap', icon: '<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>' },
+  { quote: '"We don\'t know where AI is safe to use in legal work."', label: 'Use case confusion', icon: '<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>' },
+]
 
 export default function Page() {
   const [lm, setLm] = useState(false)
@@ -67,62 +123,8 @@ export default function Page() {
   const lightBg = lm ? '#F5F3EF' : '#0B1120'
   const lightBgAlt = lm ? '#EEECEA' : '#0E1628'
   const darkBg = '#080D18'
-  const cardBg = lm ? 'rgba(26,26,26,0.05)' : 'rgba(184,198,255,0.06)'
-  const cardBorder = lm ? 'rgba(26,26,26,0.12)' : 'rgba(184,198,255,0.18)'
   const dividerColor = lm ? 'rgba(26,26,26,0.1)' : 'rgba(184,198,255,0.12)'
   const holoLabel = lm ? HOLO_DARK_TEXT : HOLO
-
-  const steps = [
-    {
-      num: '01',
-      title: 'AI Literacy and Team Readiness',
-      bullets: [
-        'Lawyers understand what AI can and cannot do',
-        'Teams learn to critically evaluate AI outputs',
-        'Confidentiality, hallucination, and bias risks are clear',
-      ],
-      outcome: 'Your team works with AI confidently and critically',
-    },
-    {
-      num: '02',
-      title: 'Use Case Identification in Legal Workflows',
-      bullets: [
-        'Real workflows are analyzed, not hypothetical scenarios',
-        'High-value use cases are identified and prioritized',
-        'Low-risk starting points for adoption are defined',
-      ],
-      outcome: 'AI is applied where it creates real value in legal work',
-    },
-    {
-      num: '03',
-      title: 'Tool Integration and Workflow Adaptation',
-      bullets: [
-        'Tools are selected based on your actual needs',
-        'Workflows are adapted around AI',
-        'Review points and human oversight are built in',
-      ],
-      outcome: 'AI becomes part of how legal work gets done',
-    },
-    {
-      num: '04',
-      title: 'Governance and EU AI Act Readiness',
-      bullets: [
-        'Decision ownership is clearly defined',
-        'Documentation processes meet EU AI Act requirements',
-        'Risk categories of AI systems in use are assessed',
-      ],
-      outcome: 'Your legal department is compliant and accountable',
-    },
-  ]
-
-  const challenges = [
-    { quote: '"We tried ChatGPT but lawyers don\'t trust the outputs."', label: 'Trust gap', icon: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>' },
-    { quote: '"We need to be EU AI Act compliant but don\'t know what that means in practice."', label: 'Compliance uncertainty', icon: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>' },
-    { quote: '"Who is responsible when AI makes a mistake in a legal matter?"', label: 'Accountability gap', icon: '<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>' },
-    { quote: '"We bought the tool. Nobody uses it properly."', label: 'Adoption failure', icon: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>' },
-    { quote: '"Our GC wants AI. Our lawyers are afraid of it."', label: 'Readiness gap', icon: '<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>' },
-    { quote: '"We don\'t know where AI is safe to use in legal work."', label: 'Use case confusion', icon: '<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>' },
-  ]
 
   return (
     <div style={{ background: lightBg, color: ink, fontFamily: 'var(--font-inter)', transition: 'background 0.3s ease, color 0.3s ease' }}>
@@ -169,7 +171,7 @@ export default function Page() {
       <section style={{
         minHeight: '100vh', background: lm ? `linear-gradient(160deg, ${lightBg} 0%, ${lightBgAlt} 100%)` : 'linear-gradient(160deg, #080D18 0%, #0D1525 55%, #080D18 100%)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        padding: 'clamp(100px, 14vw, 160px) clamp(24px, 6vw, 80px) clamp(80px, 10vw, 120px)',
+        padding: 'clamp(100px, 14vw, 160px) clamp(24px, 6vw, 80px) clamp(24px, 3vw, 40px)',
       }}>
         <div style={{ maxWidth: '780px', width: '100%' }}>
           <FadeUp><HoloLine width="w-10" className="mb-6" /></FadeUp>
@@ -197,7 +199,7 @@ export default function Page() {
               letterSpacing: '0.04em', color: '#1A1A1A', background: HOLO,
               padding: '14px 28px', borderRadius: '8px', textDecoration: 'none', marginRight: '16px',
             }}>
-              Talk to Marta <span style={{ fontSize: '18px' }}>→</span>
+              Book a conversation <span style={{ fontSize: '18px' }}>→</span>
             </a>
             <a href="#approach" style={{
               display: 'inline-flex', alignItems: 'center', fontSize: '14px',
@@ -209,42 +211,150 @@ export default function Page() {
         </div>
       </section>
 
-      <SectionFade from={lm ? lightBgAlt : darkBg} to={lightBg} />
-
-      {/* ── Challenge ── */}
-      <section style={{ background: lightBg, padding: 'clamp(28px, 4vw, 56px) clamp(24px, 6vw, 80px)' }}>
-        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+      {/* ── Steps ── */}
+      <section id="approach" style={{ background: lm ? lightBgAlt : 'linear-gradient(180deg, #0D1525 0%, #080D18 100%)', padding: 'clamp(24px, 3vw, 40px) clamp(24px, 6vw, 80px)' }}>
+        <div style={{ maxWidth: '960px', margin: '0 auto' }}>
           <FadeUp>
             <HoloLine width="w-8" className="mb-5" />
-            <p style={{ fontFamily: 'var(--font-barlow)', fontSize: '12px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: inkFaint, marginBottom: '20px' }}>
-              The challenge
+            <p style={{ fontFamily: 'var(--font-barlow)', fontSize: '12px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: inkFaint, marginBottom: '16px' }}>
+              The approach
             </p>
-            <h2 style={{ fontFamily: 'var(--font-barlow)', fontSize: 'clamp(26px, 4vw, 46px)', fontWeight: 800, lineHeight: 1.15, color: ink, marginBottom: '48px', letterSpacing: '-0.01em' }}>
-              Buying AI tools is easy.<br />Making them work in a legal department is not.
+            <h2 style={{ fontFamily: 'var(--font-barlow)', fontSize: 'clamp(26px, 3.5vw, 42px)', fontWeight: 800, color: ink, lineHeight: 1.2, marginBottom: '48px', letterSpacing: '-0.01em' }}>
+              A structured approach to AI adoption for legal teams.
             </h2>
           </FadeUp>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '16px' }}>
-            {challenges.map((item, i) => (
-              <FadeUp key={i} delay={i * 60}>
+
+          {/* Step progress indicator */}
+          <FadeUp>
+            <div style={{ marginBottom: '48px' }}>
+              <div className="steps-progress" style={{ display: 'flex', alignItems: 'flex-start', marginBottom: '12px' }}>
+                {steps.map((step, i) => (
+                  <div key={i} style={{ display: 'flex', alignItems: 'flex-start', flex: i < 2 ? 1 : 'none' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', minWidth: '120px' }}>
+                      <div style={{
+                        width: '72px', height: '72px', borderRadius: '50%', flexShrink: 0,
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        fontFamily: 'var(--font-barlow)', fontSize: '20px', fontWeight: 800, color: lm ? '#3a5abf' : '#AEE0FF',
+                        background: lm ? `linear-gradient(#fff, #fff) padding-box, ${HOLO} border-box` : `linear-gradient(#0d1629, #0d1629) padding-box, ${HOLO} border-box`,
+                        border: '2px solid transparent',
+                      }}>
+                        {step.num}
+                      </div>
+                      <span style={{ fontSize: '13px', fontFamily: 'var(--font-barlow)', fontWeight: 700, letterSpacing: '0.03em', textAlign: 'center', maxWidth: '120px', lineHeight: 1.4, color: lm ? '#3a5abf' : '#AEE0FF' }}>
+                        {step.title}
+                      </span>
+                    </div>
+                    {i < 2 && (
+                      <div style={{ flex: 1, height: '1px', opacity: 0.4, background: lm ? 'linear-gradient(90deg, rgba(58,90,191,0.6), rgba(122,74,191,0.3))' : 'linear-gradient(90deg, rgba(174,224,255,0.5), rgba(184,198,255,0.15))', margin: '36px 4px 0' }} />
+                    )}
+                  </div>
+                ))}
+              </div>
+              <div style={{
+                padding: '8px 16px', borderRadius: '6px', textAlign: 'center',
+                background: lm ? 'rgba(58,90,191,0.06)' : 'rgba(184,198,255,0.08)',
+                border: `1px solid ${lm ? 'rgba(58,90,191,0.2)' : 'rgba(184,198,255,0.25)'}`,
+              }}>
+                <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: lm ? '#3a5abf' : '#B8C6FF' }}>
+                  Responsible AI Governance & EU AI Act Readiness
+                </span>
+              </div>
+            </div>
+          </FadeUp>
+
+          <div className="steps-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px' }}>
+            {steps.map((step, i) => (
+              <FadeUp key={i} delay={i * 80}>
                 <div style={{
-                  borderRadius: '10px', padding: '22px 20px',
-                  display: 'flex', flexDirection: 'column', gap: '14px',
-                  border: '2px solid transparent',
-                  boxShadow: lm ? '0 2px 8px rgba(26,26,26,0.08)' : 'none',
-                  background: lm
-                    ? `linear-gradient(#FFFFFF, #FFFFFF) padding-box, linear-gradient(rgba(58,90,191,0.5), rgba(122,74,191,0.4)) border-box`
-                    : `linear-gradient(#0d1629, #0d1629) padding-box, ${HOLO} border-box`,
+                  background: lm ? '#FFFFFF' : 'rgba(8,13,24,0.82)', border: lm ? '1px solid rgba(26,26,26,0.12)' : '1px solid rgba(184,198,255,0.18)',
+                  borderRadius: '12px', padding: '28px 26px', backdropFilter: 'blur(12px)',
+                  display: 'flex', flexDirection: 'column', gap: '16px', height: '100%',
                 }}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                    stroke={lm ? '#3a5abf' : '#AEE0FF'} strokeWidth="1.5"
-                    strokeLinecap="round" strokeLinejoin="round"
-                    dangerouslySetInnerHTML={{ __html: item.icon }}
-                  />
-                  <p style={{ fontSize: '14px', color: lm ? '#1A1A1A' : '#F0EDE8', lineHeight: 1.65, fontStyle: 'italic' }}>{item.quote}</p>
-                  <span style={{
-                    fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase',
-                    color: lm ? '#3a5abf' : '#B8C6FF',
-                  }}>{item.label}</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '4px' }}>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={lm ? '#3a5abf' : '#AEE0FF'} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: step.icon }} />
+                    <span style={{ fontFamily: 'var(--font-barlow)', fontSize: '11px', fontWeight: 700, letterSpacing: '0.08em', color: lm ? '#3a5abf' : '#AEE0FF' }}>{step.num}</span>
+                  </div>
+                  <p style={{ fontFamily: 'var(--font-barlow)', fontSize: '18px', fontWeight: 700, color: ink, lineHeight: 1.3 }}>{step.title}</p>
+                  <ul style={{ paddingLeft: 0, display: 'flex', flexDirection: 'column', gap: '8px', flex: 1 }}>
+                    {step.bullets.map((b, j) => (
+                      <li key={j} style={{ fontSize: '14px', color: inkMuted, lineHeight: 1.65, listStyle: 'none' }}>
+                        <span style={{ color: lm ? '#3a5abf' : '#B8C6FF', marginRight: '8px' }}>·</span>{b}
+                      </li>
+                    ))}
+                  </ul>
+                  <div style={{
+                    background: 'linear-gradient(90deg, rgba(52,211,153,0.12), rgba(16,185,129,0.06))',
+                    border: '1px solid rgba(52,211,153,0.28)',
+                    borderRadius: '8px', padding: '14px 16px', marginTop: '4px',
+                  }}>
+                    <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#34D399', marginBottom: '6px' }}>Result</p>
+                    <p style={{ fontSize: '15px', fontWeight: 700, color: ink, lineHeight: 1.35 }}>{step.outcome}</p>
+                  </div>
+                </div>
+              </FadeUp>
+            ))}
+          </div>
+
+          <FadeUp>
+            <div style={{
+              marginTop: '32px',
+              padding: '20px 24px',
+              borderRadius: '10px',
+              position: 'relative',
+              background: lm ? 'rgba(58,90,191,0.06)' : 'rgba(184,198,255,0.08)',
+              border: `1px solid ${lm ? 'rgba(58,90,191,0.2)' : 'rgba(184,198,255,0.25)'}`,
+            }}>
+              <div style={{ position: 'absolute', top: '16px', right: '24px', zIndex: 2 }}>
+                <Image src="/humanintheloop.jpg" alt="Human in the Loop" width={160} height={160} style={{ borderRadius: '50%', filter: 'drop-shadow(0 4px 12px rgba(184,198,255,0.4))', transform: 'rotate(12deg)' }} />
+              </div>
+              <p style={{ fontFamily: 'var(--font-barlow)', fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: lm ? '#3a5abf' : '#B8C6FF', marginBottom: '12px' }}>
+                {governance.title}
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '14px' }}>
+                {governance.bullets.map((b, i) => (
+                  <span key={i} style={{ fontSize: '14px', color: inkMuted, lineHeight: 1.6 }}>
+                    <span style={{ color: lm ? '#3a5abf' : '#B8C6FF', marginRight: '6px' }}>·</span>{b}
+                  </span>
+                ))}
+              </div>
+              <p style={{ fontSize: '14px', fontWeight: 600, color: ink, lineHeight: 1.5, borderTop: `1px solid ${lm ? 'rgba(58,90,191,0.15)' : 'rgba(184,198,255,0.2)'}`, paddingTop: '12px', marginTop: '4px' }}>
+                {governance.tagline}
+              </p>
+            </div>
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* ── Who this is for ── */}
+      <section style={{ background: lm ? lightBg : 'linear-gradient(160deg, #080D18 0%, #0D1525 100%)', padding: 'clamp(28px, 4vw, 56px) clamp(24px, 6vw, 80px)' }}>
+        <div style={{ maxWidth: '860px', margin: '0 auto' }}>
+          <FadeUp>
+            <HoloLine width="w-8" className="mb-5" />
+            <h2 style={{ fontFamily: 'var(--font-barlow)', fontSize: 'clamp(26px, 3.5vw, 42px)', fontWeight: 800, color: ink, lineHeight: 1.2, marginBottom: '40px', letterSpacing: '-0.01em' }}>
+              Who this is for
+            </h2>
+          </FadeUp>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px' }}>
+            {[
+              { label: 'In-house legal teams', icon: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>', checks: ['AI is on your leadership\'s agenda, but nobody knows how to start', 'Your team uses AI tools informally, without structure or oversight', 'You need a practical plan, not a theoretical one'] },
+              { label: 'Compliance teams', icon: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>', checks: ['AI use in your organization must meet GDPR and EU AI Act requirements', 'You need documentation of how and where AI is applied', 'Risk categories of AI systems in use are not yet assessed'] },
+              { label: 'General Counsel and CLOs', icon: '<line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>', checks: ['You\'re being asked about AI readiness but don\'t have clear answers', 'You want an honest view of what adoption actually takes', 'You need someone who understands both law and AI. Not a vendor.'] },
+              { label: 'Legal operations', icon: '<circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>', checks: ['You manage high document volumes and repetitive legal workflows', 'You\'ve tried AI tools but adoption was inconsistent', 'You want AI built into how legal work gets done, not bolted on'] },
+            ].map((item, i) => (
+              <FadeUp key={i} delay={i * 60}>
+                <div style={{ background: lm ? '#FFFFFF' : 'rgba(184,198,255,0.06)', border: lm ? '1px solid rgba(26,26,26,0.12)' : '1px solid rgba(184,198,255,0.15)', borderRadius: '10px', padding: '24px 22px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={lm ? '#3a5abf' : '#AEE0FF'} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: item.icon }} />
+                    <p style={{ fontFamily: 'var(--font-barlow)', fontSize: '17px', fontWeight: 700, color: ink }}>{item.label}</p>
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                    {item.checks.map((check, j) => (
+                      <div key={j} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
+                        <span style={{ fontSize: '13px', fontWeight: 700, color: '#34D399', flexShrink: 0, marginTop: '1px' }}>✓</span>
+                        <p style={{ fontSize: '13px', color: inkMuted, lineHeight: 1.6 }}>{check}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </FadeUp>
             ))}
@@ -258,10 +368,7 @@ export default function Page() {
 
           <FadeUp>
             <p style={{ fontFamily: 'var(--font-barlow)', fontSize: 'clamp(22px, 3vw, 38px)', fontWeight: 700, color: ink, lineHeight: 1.45, maxWidth: '680px', textAlign: 'center' }}>
-              AI needs human structure.<br />
-              <span style={lm ? { color: '#3a5abf' } : { background: HOLO, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                That is what makes legal teams <span style={{ whiteSpace: 'nowrap' }}>AI-ready.</span>
-              </span>
+              Human structure makes legal teams AI-ready.
             </p>
           </FadeUp>
 
@@ -269,7 +376,7 @@ export default function Page() {
           <FadeUp delay={120}>
             <div ref={icebergRef} style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
 
-              {/* Free-floating caption — upper left, no box */}
+              {/* Free-floating caption */}
               <div style={{ position: 'absolute', left: '-30px', top: '8%', zIndex: 10, maxWidth: '200px' }}>
                 <HoloLine width="w-8" className="mb-3" />
                 <p style={{ fontSize: '13px', fontWeight: 700, color: ink, lineHeight: 1.55, marginBottom: '6px' }}>
@@ -329,105 +436,76 @@ export default function Page() {
               Most AI initiatives focus on the visible part. What determines success is everything underneath: who owns decisions, how processes are structured, and whether compliance is built in from the start.
             </p>
           </FadeUp>
-
-          {/* Human in the Loop */}
-          <FadeUp delay={300}>
-            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
-              <Image src="/humanintheloop.jpg" alt="Human in the Loop" width={160} height={160} style={{ borderRadius: '50%', filter: 'drop-shadow(0 6px 24px rgba(184,198,255,0.35))' }} />
-            </div>
-          </FadeUp>
         </div>
       </section>
 
-      {/* ── Steps ── */}
-      <section id="approach" style={{ background: lm ? lightBgAlt : 'linear-gradient(180deg, #0D1525 0%, #080D18 100%)', padding: 'clamp(72px, 10vw, 120px) clamp(24px, 6vw, 80px)' }}>
-        <div style={{ maxWidth: '960px', margin: '0 auto' }}>
+      <SectionFade from={lm ? lightBg : darkBg} to={lightBg} />
+
+      {/* ── Challenge ── */}
+      <section style={{ background: lightBg, padding: 'clamp(28px, 4vw, 56px) clamp(24px, 6vw, 80px)' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <FadeUp>
             <HoloLine width="w-8" className="mb-5" />
-            <p style={{ fontFamily: 'var(--font-barlow)', fontSize: '12px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: inkFaint, marginBottom: '16px' }}>
-              The approach
+            <p style={{ fontFamily: 'var(--font-barlow)', fontSize: '12px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: inkFaint, marginBottom: '20px' }}>
+              The challenge
             </p>
-            <h2 style={{ fontFamily: 'var(--font-barlow)', fontSize: 'clamp(26px, 3.5vw, 42px)', fontWeight: 800, color: ink, lineHeight: 1.2, marginBottom: '48px', letterSpacing: '-0.01em' }}>
-              Four steps to legal teams that work with AI.
+            <h2 style={{ fontFamily: 'var(--font-barlow)', fontSize: 'clamp(26px, 4vw, 46px)', fontWeight: 800, lineHeight: 1.15, color: ink, marginBottom: '48px', letterSpacing: '-0.01em' }}>
+              Buying AI tools is easy.<br />Making them work in a legal department is not.
             </h2>
           </FadeUp>
-
-          {/* Step progress indicator */}
-          <FadeUp>
-            <div style={{ display: 'flex', alignItems: 'flex-start', marginBottom: '48px' }}>
-              {steps.map((step, i) => (
-                <div key={i} style={{ display: 'flex', alignItems: 'flex-start', flex: i < 3 ? 1 : 'none' }}>
-                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', minWidth: '90px' }}>
-                    <div style={{
-                      width: '52px', height: '52px', borderRadius: '50%', flexShrink: 0,
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontFamily: 'var(--font-barlow)', fontSize: '16px', fontWeight: 800, color: lm ? '#3a5abf' : '#AEE0FF',
-                      background: lm ? `linear-gradient(#fff, #fff) padding-box, ${HOLO} border-box` : `linear-gradient(#0d1629, #0d1629) padding-box, ${HOLO} border-box`,
-                      border: '2px solid transparent',
-                    }}>
-                      {step.num}
-                    </div>
-                    <span style={{ fontSize: '11px', fontFamily: 'var(--font-barlow)', fontWeight: 700, letterSpacing: '0.03em', textAlign: 'center', maxWidth: '90px', lineHeight: 1.4, color: lm ? '#3a5abf' : '#AEE0FF' }}>
-                      {step.title}
-                    </span>
-                  </div>
-                  {i < 3 && (
-                    <div style={{ flex: 1, height: '1px', background: lm ? 'linear-gradient(90deg, rgba(58,90,191,0.4), rgba(122,74,191,0.2))' : 'linear-gradient(90deg, rgba(174,224,255,0.4), rgba(184,198,255,0.1))', margin: '26px 8px 0' }} />
-                  )}
-                </div>
-              ))}
-            </div>
-          </FadeUp>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px' }}>
-            {steps.map((step, i) => (
-              <FadeUp key={i} delay={i * 80}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '16px' }}>
+            {challenges.map((item, i) => (
+              <FadeUp key={i} delay={i * 60}>
                 <div style={{
-                  background: lm ? '#FFFFFF' : 'rgba(8,13,24,0.82)', border: lm ? '1px solid rgba(26,26,26,0.12)' : '1px solid rgba(184,198,255,0.18)',
-                  borderRadius: '12px', padding: '28px 26px', backdropFilter: 'blur(12px)',
-                  display: 'flex', flexDirection: 'column', gap: '16px', height: '100%',
+                  borderRadius: '10px', padding: '22px 20px',
+                  display: 'flex', flexDirection: 'column', gap: '14px',
+                  border: '2px solid transparent',
+                  boxShadow: lm ? '0 2px 8px rgba(26,26,26,0.08)' : 'none',
+                  background: lm
+                    ? `linear-gradient(#FFFFFF, #FFFFFF) padding-box, linear-gradient(rgba(58,90,191,0.5), rgba(122,74,191,0.4)) border-box`
+                    : `linear-gradient(#0d1629, #0d1629) padding-box, ${HOLO} border-box`,
                 }}>
-                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
-                    <span style={{ fontFamily: 'var(--font-barlow)', fontSize: '13px', fontWeight: 700, letterSpacing: '0.08em', color: lm ? '#3a5abf' : '#AEE0FF', minWidth: '28px', paddingTop: '2px' }}>{step.num}</span>
-                    <p style={{ fontFamily: 'var(--font-barlow)', fontSize: '18px', fontWeight: 700, color: ink, lineHeight: 1.3 }}>{step.title}</p>
-                  </div>
-                  <ul style={{ paddingLeft: 0, display: 'flex', flexDirection: 'column', gap: '8px', flex: 1 }}>
-                    {step.bullets.map((b, j) => (
-                      <li key={j} style={{ fontSize: '14px', color: inkMuted, lineHeight: 1.65, listStyle: 'none' }}>
-                        <span style={{ color: lm ? '#3a5abf' : '#B8C6FF', marginRight: '8px' }}>·</span>{b}
-                      </li>
-                    ))}
-                  </ul>
-                  {/* Result — prominent */}
-                  <div style={{
-                    background: 'linear-gradient(90deg, rgba(52,211,153,0.12), rgba(16,185,129,0.06))',
-                    border: '1px solid rgba(52,211,153,0.28)',
-                    borderRadius: '8px', padding: '14px 16px', marginTop: '4px',
-                  }}>
-                    <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#34D399', marginBottom: '6px' }}>Result</p>
-                    <p style={{ fontSize: '15px', fontWeight: 700, color: ink, lineHeight: 1.35 }}>{step.outcome}</p>
-                  </div>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke={lm ? '#3a5abf' : '#AEE0FF'} strokeWidth="1.5"
+                    strokeLinecap="round" strokeLinejoin="round"
+                    dangerouslySetInnerHTML={{ __html: item.icon }}
+                  />
+                  <p style={{ fontSize: '14px', color: lm ? '#1A1A1A' : '#F0EDE8', lineHeight: 1.65, fontStyle: 'italic' }}>{item.quote}</p>
+                  <span style={{
+                    fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase',
+                    color: lm ? '#3a5abf' : '#B8C6FF',
+                  }}>{item.label}</span>
                 </div>
               </FadeUp>
             ))}
           </div>
-          {/* AI Governance callout */}
-          <FadeUp>
-            <div style={{
-              marginTop: '48px',
-              borderTop: `1px solid ${lm ? 'rgba(26,26,26,0.12)' : 'rgba(184,198,255,0.18)'}`,
-              paddingTop: '36px',
-              maxWidth: '680px',
-            }}>
-              <p style={{ fontFamily: 'var(--font-barlow)', fontSize: '18px', fontWeight: 800, color: ink, marginBottom: '12px', letterSpacing: '-0.01em' }}>
-                AI Governance &amp; Readiness
-              </p>
-              <p style={{ fontSize: '15px', color: inkMuted, lineHeight: 1.75 }}>
-                Across all four steps, governance is not a final checkbox. It means knowing from the start who owns decisions, how risks are documented, and what EU AI Act requirements apply to your organisation. That is what makes AI adoption sustainable.
-              </p>
-            </div>
-          </FadeUp>
         </div>
+      </section>
+
+      <SectionFade from={lightBg} to={lm ? lightBgAlt : darkBg} />
+
+      {/* ── CTA ── */}
+      <section style={{ background: lm ? lightBgAlt : darkBg, padding: 'clamp(72px, 10vw, 120px) clamp(24px, 6vw, 80px)', textAlign: 'center' }}>
+        <FadeUp>
+          <HoloLine width="w-8" className="mb-6 mx-auto" />
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '20px' }}>
+            <Image src="/clarity.png" alt="Clarity before speed" width={160} height={160} style={{ marginBottom: '24px', filter: 'drop-shadow(0 6px 18px rgba(0,0,0,0.18))' }} />
+            <h2 style={{ fontFamily: 'var(--font-barlow)', fontSize: 'clamp(28px, 4vw, 52px)', fontWeight: 900, lineHeight: 1.1, color: ink, letterSpacing: '-0.02em' }}>
+              Ready to introduce AI into your legal team?
+            </h2>
+          </div>
+          <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: inkMuted, lineHeight: 1.65, maxWidth: '520px', margin: '0 auto 40px' }}>
+            Start with a conversation. No pitch, no template. Just an honest look at where your legal department is and what AI adoption actually requires.
+          </p>
+          <a href="https://www.proceduresmatter.com/#booking" style={{
+            display: 'inline-flex', alignItems: 'center', gap: '10px',
+            fontFamily: 'var(--font-barlow)', fontSize: '16px', fontWeight: 700,
+            letterSpacing: '0.04em', color: '#1A1A1A', background: HOLO,
+            padding: '16px 36px', borderRadius: '8px', textDecoration: 'none',
+          }}>
+            Book a conversation <span style={{ fontSize: '20px' }}>→</span>
+          </a>
+        </FadeUp>
       </section>
 
       <SectionFade from={lm ? lightBgAlt : darkBg} to={lightBg} />
@@ -462,7 +540,7 @@ export default function Page() {
                   International Legal Counsel · AI Adoption Consultant · Project Management Practitioner
                 </p>
                 <p style={{ fontSize: '15px', lineHeight: 1.75, color: inkMuted, marginBottom: '14px' }}>
-                  International Legal Counsel with over a decade of international legal practice who has operationalized AI in legal and compliance as daily practice.
+                  International Legal Counsel with over a decade of international legal practice who has successfully implemented AI in legal and business teams as daily practice.
                 </p>
                 <p style={{ fontSize: '15px', lineHeight: 1.75, color: inkMuted, marginBottom: '28px' }}>
                   Strong understanding of legal risk, compliance requirements, and the human side of getting lawyers to actually change how they work.
@@ -474,7 +552,7 @@ export default function Page() {
             </FadeUp>
           </div>
 
-          {/* Legal × AI × Collaboration — prominent */}
+          {/* Legal × AI × Collaboration */}
           <FadeUp delay={60}>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', marginBottom: '48px' }}>
               {[
@@ -515,70 +593,15 @@ export default function Page() {
             </div>
           </FadeUp>
 
+          <FadeUp delay={80}>
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '8px' }}>
+              <Image src="/clarity.png" alt="Clarity before speed" width={220} height={220} style={{ filter: 'drop-shadow(0 6px 18px rgba(0,0,0,0.18))' }} />
+            </div>
+          </FadeUp>
         </div>
       </section>
 
       <SectionFade from={lightBg} to={lm ? lightBgAlt : darkBg} />
-
-      {/* ── Who this is for ── */}
-      <section style={{ background: lm ? lightBgAlt : 'linear-gradient(160deg, #080D18 0%, #0D1525 100%)', padding: 'clamp(28px, 4vw, 56px) clamp(24px, 6vw, 80px)' }}>
-        <div style={{ maxWidth: '860px', margin: '0 auto' }}>
-          <FadeUp>
-            <HoloLine width="w-8" className="mb-5" />
-            <h2 style={{ fontFamily: 'var(--font-barlow)', fontSize: 'clamp(26px, 3.5vw, 42px)', fontWeight: 800, color: ink, lineHeight: 1.2, marginBottom: '40px', letterSpacing: '-0.01em' }}>
-              Who this is for
-            </h2>
-          </FadeUp>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px' }}>
-            {[
-              { label: 'In-house legal teams', checks: ['AI is on your leadership\'s agenda, but nobody knows how to start', 'Your team uses AI tools informally, without structure or oversight', 'You need a practical plan, not a theoretical one'] },
-              { label: 'Compliance teams', checks: ['AI use in your organization must meet GDPR and EU AI Act requirements', 'You need documentation of how and where AI is applied', 'Risk categories of AI systems in use are not yet assessed'] },
-              { label: 'General Counsel and CLOs', checks: ['You\'re being asked about AI readiness but don\'t have clear answers', 'You want an honest view of what adoption actually takes', 'You need someone who understands both law and AI. Not a vendor.'] },
-              { label: 'Legal operations', checks: ['You manage high document volumes and repetitive legal workflows', 'You\'ve tried AI tools but adoption was inconsistent', 'You want AI built into how legal work gets done, not bolted on'] },
-            ].map((item, i) => (
-              <FadeUp key={i} delay={i * 60}>
-                <div style={{ background: lm ? '#FFFFFF' : 'rgba(184,198,255,0.06)', border: lm ? '1px solid rgba(26,26,26,0.12)' : '1px solid rgba(184,198,255,0.15)', borderRadius: '10px', padding: '24px 22px' }}>
-                  <p style={{ fontFamily: 'var(--font-barlow)', fontSize: '17px', fontWeight: 700, color: ink, marginBottom: '14px' }}>{item.label}</p>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                    {item.checks.map((check, j) => (
-                      <div key={j} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-                        <span style={{ fontSize: '13px', fontWeight: 700, color: '#34D399', flexShrink: 0, marginTop: '1px' }}>✓</span>
-                        <p style={{ fontSize: '13px', color: 'rgba(245,243,239,0.72)', lineHeight: 1.6 }}>{check}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </FadeUp>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <SectionFade from={lm ? lightBgAlt : darkBg} to={lightBg} />
-
-      {/* ── CTA ── */}
-      <section style={{ background: lightBg, padding: 'clamp(72px, 10vw, 120px) clamp(24px, 6vw, 80px)', textAlign: 'center' }}>
-        <FadeUp>
-          <HoloLine width="w-8" className="mb-6 mx-auto" />
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '20px' }}>
-            <Image src="/clarity.png" alt="Clarity before speed" width={160} height={160} style={{ marginBottom: '24px', filter: 'drop-shadow(0 6px 18px rgba(0,0,0,0.18))' }} />
-            <h2 style={{ fontFamily: 'var(--font-barlow)', fontSize: 'clamp(28px, 4vw, 52px)', fontWeight: 900, lineHeight: 1.1, color: ink, letterSpacing: '-0.02em' }}>
-              Ready to introduce AI into your legal team?
-            </h2>
-          </div>
-          <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', color: inkMuted, lineHeight: 1.65, maxWidth: '520px', margin: '0 auto 40px' }}>
-            Start with a conversation. No pitch, no template. Just an honest look at where your legal department is and what AI adoption actually requires.
-          </p>
-          <a href="https://www.proceduresmatter.com/#booking" style={{
-            display: 'inline-flex', alignItems: 'center', gap: '10px',
-            fontFamily: 'var(--font-barlow)', fontSize: '16px', fontWeight: 700,
-            letterSpacing: '0.04em', color: '#1A1A1A', background: HOLO,
-            padding: '16px 36px', borderRadius: '8px', textDecoration: 'none',
-          }}>
-            Book a conversation <span style={{ fontSize: '20px' }}>→</span>
-          </a>
-        </FadeUp>
-      </section>
 
       {/* ── Testimonials ── */}
       <section style={{ background: lm ? lightBgAlt : darkBg, padding: 'clamp(72px, 10vw, 120px) clamp(24px, 6vw, 80px)' }}>
