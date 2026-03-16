@@ -37,36 +37,36 @@ function SectionFade({ from, to, height = '140px' }: { from: string; to: string;
 const steps = [
   {
     num: '01',
-    title: 'AI Literacy and Team Readiness',
+    title: 'AI Readiness',
     icon: '<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>',
     bullets: [
-      'Lawyers understand what AI can and cannot do',
-      'Teams learn to critically evaluate AI outputs',
-      'Confidentiality, hallucination, and bias risks are clear',
+      'Understand where your legal department currently stands with AI',
+      'Identify skill gaps, readiness barriers and entry points',
+      'Build a shared baseline across leadership and legal teams',
     ],
-    outcome: 'Your team works with AI confidently and critically',
+    outcome: 'You know where to start.',
   },
   {
     num: '02',
-    title: 'Use Case Identification in Legal Workflows',
+    title: 'Define Legal Use Cases',
     icon: '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
     bullets: [
-      'Real workflows are analyzed, not hypothetical scenarios',
-      'High-value use cases are identified and prioritized',
-      'Low-risk starting points for adoption are defined',
+      'Analyse real legal workflows, not hypothetical scenarios',
+      'Identify and prioritise high-value use cases',
+      'Define safe and meaningful entry points for legal work',
     ],
-    outcome: 'AI is applied where it creates real value in legal work',
+    outcome: 'AI creates real value in legal work.',
   },
   {
     num: '03',
-    title: 'Tool Integration and Workflow Adaptation',
+    title: 'Integrate AI into Legal Work',
     icon: '<polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/>',
     bullets: [
-      'Tools are selected based on your actual needs',
-      'Workflows are adapted around AI',
-      'Review points and human oversight are built in',
+      'Select tools based on actual legal needs',
+      'Design workflows around AI support',
+      'Build in review points and human oversight from the start',
     ],
-    outcome: 'AI becomes part of how legal work gets done',
+    outcome: 'AI becomes part of how legal work gets done.',
   },
 ]
 
@@ -82,12 +82,12 @@ const governance = {
 }
 
 const challenges = [
-  { quote: '"We tried ChatGPT but lawyers don\'t trust the outputs."', label: 'Trust gap', icon: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>' },
-  { quote: '"We need to be EU AI Act compliant but don\'t know what that means in practice."', label: 'Compliance uncertainty', icon: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>' },
-  { quote: '"Who is responsible when AI makes a mistake in a legal matter?"', label: 'Accountability gap', icon: '<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>' },
-  { quote: '"We bought the tool. Nobody uses it properly."', label: 'Adoption failure', icon: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>' },
+  { quote: '"We bought the tools. Nobody uses them properly."', label: 'Adoption failure', icon: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>' },
+  { quote: '"Lawyers are using AI informally. Nobody knows the risks."', label: 'Shadow AI exposure', icon: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>' },
+  { quote: '"We need to be EU AI Act compliant but don\'t know what applies to us."', label: 'Compliance uncertainty', icon: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>' },
   { quote: '"Our GC wants AI. Our lawyers are afraid of it."', label: 'Readiness gap', icon: '<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>' },
   { quote: '"We don\'t know where AI is safe to use in legal work."', label: 'Use case confusion', icon: '<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>' },
+  { quote: '"Who is accountable when AI makes a mistake in a legal matter?"', label: 'Accountability gap', icon: '<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>' },
 ]
 
 export default function Page() {
@@ -129,7 +129,7 @@ export default function Page() {
   return (
     <div style={{ background: lightBg, color: ink, fontFamily: 'var(--font-inter)', transition: 'background 0.3s ease, color 0.3s ease' }}>
 
-      {/* ── Nav ── */}
+      {/* Nav */}
       <nav style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
@@ -167,7 +167,7 @@ export default function Page() {
         </div>
       </nav>
 
-      {/* ── Hero ── */}
+      {/* Hero */}
       <section style={{
         minHeight: '100vh', background: lm ? `linear-gradient(160deg, ${lightBg} 0%, ${lightBgAlt} 100%)` : 'linear-gradient(160deg, #080D18 0%, #0D1525 55%, #080D18 100%)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -181,15 +181,15 @@ export default function Page() {
               fontWeight: 900, lineHeight: 1.05, color: ink,
               letterSpacing: '-0.02em', marginBottom: '28px',
             }}>
-              AI for Legal Teams.
+              Successful AI adoption in legal teams happens where AI meets human structure.
             </h1>
           </FadeUp>
           <FadeUp delay={160}>
             <p style={{ fontSize: 'clamp(18px, 2.2vw, 24px)', fontWeight: 300, color: inkMuted, lineHeight: 1.6, marginBottom: '12px', maxWidth: '620px' }}>
-              Your legal department is ready to use AI.
+              Your legal department is ready for AI.
             </p>
             <p style={{ fontSize: 'clamp(18px, 2.2vw, 24px)', fontWeight: 300, color: inkMuted, lineHeight: 1.6, marginBottom: '40px', maxWidth: '620px' }}>
-              The question is how to do it without losing control, creating liability, or wasting time on tools nobody uses.
+              AI for Legal Teams helps legal departments adopt AI with greater efficiency and responsible decision-making.
             </p>
           </FadeUp>
           <FadeUp delay={240}>
@@ -211,7 +211,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── Steps ── */}
+      {/* Steps */}
       <section id="approach" style={{ background: lm ? lightBgAlt : 'linear-gradient(180deg, #0D1525 0%, #080D18 100%)', padding: 'clamp(24px, 3vw, 40px) clamp(24px, 6vw, 80px)' }}>
         <div style={{ maxWidth: '960px', margin: '0 auto' }}>
           <FadeUp>
@@ -325,8 +325,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── Who this is for ── */}
-      <section style={{ background: lm ? lightBg : 'linear-gradient(160deg, #080D18 0%, #0D1525 100%)', padding: 'clamp(28px, 4vw, 56px) clamp(24px, 6vw, 80px)' }}>
+      {/* Who this is for */}
+      <section style={{ background: lm ? lightBgAlt : 'linear-gradient(160deg, #080D18 0%, #0D1525 100%)', padding: 'clamp(28px, 4vw, 56px) clamp(24px, 6vw, 80px)' }}>
         <div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <FadeUp>
             <HoloLine width="w-8" className="mb-5" />
@@ -336,10 +336,10 @@ export default function Page() {
           </FadeUp>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px' }}>
             {[
-              { label: 'In-house legal teams', icon: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>', checks: ['AI is on your leadership\'s agenda, but nobody knows how to start', 'Your team uses AI tools informally, without structure or oversight', 'You need a practical plan, not a theoretical one'] },
-              { label: 'Compliance teams', icon: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>', checks: ['AI use in your organization must meet GDPR and EU AI Act requirements', 'You need documentation of how and where AI is applied', 'Risk categories of AI systems in use are not yet assessed'] },
+              { label: 'In-house legal teams', icon: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>', checks: ['AI is on your leadership\'s agenda, but nobody has a clear implementation plan', 'Your team uses AI tools informally, without structure or oversight', 'You need a practical plan, not a theoretical one'] },
+              { label: 'Compliance teams', icon: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>', checks: ['AI use in your organisation must meet GDPR and EU AI Act requirements', 'You need documentation and accountability structures for AI systems in use', 'Risk categories of AI systems in use are not yet assessed'] },
               { label: 'General Counsel and CLOs', icon: '<line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>', checks: ['You\'re being asked about AI readiness but don\'t have clear answers', 'You want an honest view of what adoption actually takes', 'You need someone who understands both law and AI. Not a vendor.'] },
-              { label: 'Legal operations', icon: '<circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>', checks: ['You manage high document volumes and repetitive legal workflows', 'You\'ve tried AI tools but adoption was inconsistent', 'You want AI built into how legal work gets done, not bolted on'] },
+              { label: 'Legal operations', icon: '<circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>', checks: ['You manage high document volumes and repetitive legal workflows', 'You\'ve tried AI tools but adoption was inconsistent', 'You want AI built into how legal work gets done, not bolted on afterwards'] },
             ].map((item, i) => (
               <FadeUp key={i} delay={i * 60}>
                 <div style={{ background: lm ? '#FFFFFF' : 'rgba(184,198,255,0.06)', border: lm ? '1px solid rgba(26,26,26,0.12)' : '1px solid rgba(184,198,255,0.15)', borderRadius: '10px', padding: '24px 22px' }}>
@@ -362,13 +362,15 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── Bridge + Iceberg ── */}
+      {/* Bridge + Iceberg */}
       <section style={{ background: lm ? lightBg : 'linear-gradient(160deg, #080D18 0%, #0D1525 100%)', padding: 'clamp(28px, 4vw, 56px) clamp(24px, 6vw, 80px)' }}>
         <div style={{ maxWidth: '960px', margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'clamp(48px, 7vw, 80px)' }}>
 
           <FadeUp>
             <p style={{ fontFamily: 'var(--font-barlow)', fontSize: 'clamp(22px, 3vw, 38px)', fontWeight: 700, color: ink, lineHeight: 1.45, maxWidth: '680px', textAlign: 'center' }}>
-              Human structure makes legal teams AI-ready.
+              <span style={lm ? { color: '#3a5abf' } : { background: HOLO, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                Human structure makes legal teams AI-ready.
+              </span>
             </p>
           </FadeUp>
 
@@ -376,7 +378,6 @@ export default function Page() {
           <FadeUp delay={120}>
             <div ref={icebergRef} style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
 
-              {/* Free-floating caption */}
               <div style={{ position: 'absolute', left: '-30px', top: '8%', zIndex: 10, maxWidth: '200px' }}>
                 <HoloLine width="w-8" className="mb-3" />
                 <p style={{ fontSize: '13px', fontWeight: 700, color: ink, lineHeight: 1.55, marginBottom: '6px' }}>
@@ -396,7 +397,6 @@ export default function Page() {
                   className="eisberg-hero-img"
                   style={{ width: 'clamp(220px, 70vw, 400px)', height: 'clamp(260px, 45vw, 460px)', objectFit: 'cover', objectPosition: 'center 40%' }}
                 />
-                {/* Scroll-animated labels */}
                 <div style={{ position: 'absolute', top: '58%', left: 0, right: 0, pointerEvents: 'none', zIndex: 3 }}>
                   <div style={{ position: 'absolute', bottom: 'calc(100% + 10px)', right: '8%', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '10px' }}>
                     {['AI tools', 'Pilots', 'Experimentation'].map((item, idx) => (
@@ -430,10 +430,9 @@ export default function Page() {
             </div>
           </FadeUp>
 
-          {/* Iceberg explanation line */}
           <FadeUp delay={200}>
             <p style={{ textAlign: 'center', fontSize: '13px', color: inkFaint, lineHeight: 1.6, maxWidth: '500px', margin: '0 auto', fontStyle: 'italic' }}>
-              Most AI initiatives focus on the visible part. What determines success is everything underneath: who owns decisions, how processes are structured, and whether compliance is built in from the start.
+              Most legal AI initiatives focus on the visible part. What determines success is everything underneath: who owns decisions, how processes are structured, and whether compliance is built in from the start.
             </p>
           </FadeUp>
         </div>
@@ -441,7 +440,7 @@ export default function Page() {
 
       <SectionFade from={lm ? lightBg : darkBg} to={lightBg} />
 
-      {/* ── Challenge ── */}
+      {/* Challenge */}
       <section style={{ background: lightBg, padding: 'clamp(28px, 4vw, 56px) clamp(24px, 6vw, 80px)' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <FadeUp>
@@ -449,9 +448,12 @@ export default function Page() {
             <p style={{ fontFamily: 'var(--font-barlow)', fontSize: '12px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: inkFaint, marginBottom: '20px' }}>
               The challenge
             </p>
-            <h2 style={{ fontFamily: 'var(--font-barlow)', fontSize: 'clamp(26px, 4vw, 46px)', fontWeight: 800, lineHeight: 1.15, color: ink, marginBottom: '48px', letterSpacing: '-0.01em' }}>
-              Buying AI tools is easy.<br />Making them work in a legal department is not.
+            <h2 style={{ fontFamily: 'var(--font-barlow)', fontSize: 'clamp(26px, 4vw, 46px)', fontWeight: 800, lineHeight: 1.15, color: ink, marginBottom: '16px', letterSpacing: '-0.01em' }}>
+              Successful AI adoption in legal teams goes beyond technology.
             </h2>
+            <p style={{ fontSize: 'clamp(15px, 1.8vw, 18px)', fontWeight: 300, color: inkMuted, lineHeight: 1.65, marginBottom: '40px', maxWidth: '620px' }}>
+              What matters is introducing AI in a way that fits how your legal department works, supports responsible decisions, and creates real value in everyday legal work.
+            </p>
           </FadeUp>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '16px' }}>
             {challenges.map((item, i) => (
@@ -482,10 +484,8 @@ export default function Page() {
         </div>
       </section>
 
-      <SectionFade from={lightBg} to={lm ? lightBgAlt : darkBg} />
-
-      {/* ── CTA ── */}
-      <section style={{ background: lm ? lightBgAlt : darkBg, padding: 'clamp(72px, 10vw, 120px) clamp(24px, 6vw, 80px)', textAlign: 'center' }}>
+      {/* CTA */}
+      <section style={{ background: lightBg, padding: 'clamp(72px, 10vw, 120px) clamp(24px, 6vw, 80px)', textAlign: 'center' }}>
         <FadeUp>
           <HoloLine width="w-8" className="mb-6 mx-auto" />
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '20px' }}>
@@ -508,10 +508,10 @@ export default function Page() {
         </FadeUp>
       </section>
 
-      <SectionFade from={lm ? lightBgAlt : darkBg} to={lightBg} />
+      <SectionFade from={lightBg} to={lm ? lightBgAlt : '#0D1525'} />
 
-      {/* ── About Marta ── */}
-      <section style={{ background: lightBg, padding: 'clamp(28px, 4vw, 56px) clamp(24px, 6vw, 80px)' }}>
+      {/* About Marta */}
+      <section style={{ background: lm ? lightBgAlt : 'linear-gradient(160deg, #0D1525 0%, #080D18 100%)', padding: 'clamp(28px, 4vw, 56px) clamp(24px, 6vw, 80px)' }}>
         <div style={{ maxWidth: '960px', margin: '0 auto' }}>
           <FadeUp>
             <HoloLine width="w-8" className="mb-5" />
@@ -520,7 +520,6 @@ export default function Page() {
             </p>
           </FadeUp>
 
-          {/* Photo + name + text */}
           <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '28px', alignItems: 'start', marginBottom: '48px' }}>
             <FadeUp>
               <div className="glass-photo-card" style={{ borderRadius: '14px', overflow: 'hidden', maxWidth: '180px' }}>
@@ -573,7 +572,7 @@ export default function Page() {
                 {
                   label: 'Collaboration',
                   num: '03',
-                  desc: 'Project management and change leadership: aligning stakeholders and structuring initiatives so teams can actually adopt new ways of working.',
+                  desc: 'Project management and change leadership: aligning stakeholders and structuring initiatives so legal teams can actually adopt new ways of working.',
                   grad: 'linear-gradient(135deg, rgba(174,224,255,0.18), rgba(174,224,255,0.06))',
                   border: 'rgba(174,224,255,0.35)',
                 },
@@ -601,9 +600,9 @@ export default function Page() {
         </div>
       </section>
 
-      <SectionFade from={lightBg} to={lm ? lightBgAlt : darkBg} />
+      <SectionFade from={lm ? lightBgAlt : '#080D18'} to={lm ? lightBgAlt : darkBg} />
 
-      {/* ── Testimonials ── */}
+      {/* Testimonials */}
       <section style={{ background: lm ? lightBgAlt : darkBg, padding: 'clamp(72px, 10vw, 120px) clamp(24px, 6vw, 80px)' }}>
         <div style={{ maxWidth: '1060px', margin: '0 auto' }}>
           <FadeUp>
@@ -659,7 +658,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── Footer ── */}
+      {/* Footer */}
       <footer style={{ background: 'rgba(8,13,24,0.97)', padding: 'clamp(40px, 6vw, 60px) clamp(24px, 6vw, 80px)', borderTop: '1px solid rgba(184,198,255,0.10)' }}>
         <div style={{ maxWidth: '860px', margin: '0 auto', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '20px' }}>
           <div>
@@ -680,7 +679,7 @@ export default function Page() {
         </div>
       </footer>
 
-      {/* ── Scroll to top ── */}
+      {/* Scroll to top */}
       {scrolled && (
         <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Scroll to top" style={{
           position: 'fixed', bottom: '24px', right: '20px',
