@@ -53,7 +53,7 @@ const content = {
     steps: [
       {
         num: '01',
-        title: 'AI Readiness',
+        title: 'Assess AI Readiness',
         icon: '<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>',
         bullets: [
           'Understand where your legal department currently stands with AI',
@@ -91,7 +91,7 @@ const content = {
         'Governance is embedded throughout the entire process',
         'Decision ownership is clearly defined at every stage',
         'Documentation meets EU AI Act requirements',
-        'AI use remains traceable and accountable',
+        'AI use remains traceable and auditable',
       ],
       tagline: 'AI adoption through structure, procedures and decision clarity. Procedures matter.',
     },
@@ -159,7 +159,7 @@ const content = {
     },
     cta: {
       heading: 'Ready to introduce AI into your legal team?',
-      sub: 'Start with a conversation. No pitch, no template. Just an honest look at where your legal department is and what AI adoption actually requires.',
+      sub: 'Start with a conversation. No pitch, no script. Just an honest look at where your legal department is and what AI adoption actually requires.',
       btn: 'Book a conversation',
     },
     about: {
@@ -167,8 +167,8 @@ const content = {
       role: 'AI Adoption Advisor · Decision Structures · International Legal Counsel',
       bio1: 'I work on how AI becomes part of daily operations - in a way that aligns with responsibility, risk and real workflows.',
       bio2: 'My background combines international legal practice, project management and hands-on AI adoption in legal and business teams. This shapes how I design AI use in real working environments.',
-      bio3: 'My work is supported by a structured AI environment, integrated into daily workflows. I use it within clear principles, with human judgment and responsibility remaining explicit.',
-      bio4: 'I bring a strong understanding of legal risk, organizational reality and the human side of adoption.',
+      bio3: 'I work within a structured AI environment, integrated into my daily workflows. I apply it within clear principles, with human judgment and accountability always at the forefront.',
+      bio4: 'I bring a strong understanding of legal risk, organisational reality and the human side of adoption.',
       linkedin: 'LinkedIn',
       cols: [
         {
@@ -202,7 +202,7 @@ const content = {
           quote: 'She brings deep legal expertise to every discussion, seasoned with strong business acumen. Her experimentation and deliveries across AI and automation bring significant efficiency to our business.',
           name: 'Diogo Chaves',
           title: 'Chief Procurement Officer',
-          company: 'Global life sciences company',
+          company: 'Global pharmaceutical company',
         },
         {
           quote: 'She combines strong legal judgment with AI adoption to simplify complexity and accelerate outcomes. What sets Marta apart is her adoption of AI at a speedy rate.',
@@ -214,7 +214,7 @@ const content = {
           quote: 'Marta has been a great advocate of AI integration into the legal and procurement space. She was one of the first creating AI personas which allowed us to do tasks faster, improve communications, and identify differences in contracts. Together with her legal knowledge, this made our team stronger.',
           name: 'Rubi Castro-Williams',
           title: 'Global Procurement Category Director',
-          company: 'Elanco',
+          company: 'Global pharmaceutical company',
         },
       ],
     },
@@ -343,7 +343,7 @@ const content = {
     },
     cta: {
       heading: 'Bereit, KI in Ihr Rechtsteam einzuführen?',
-      sub: 'Starten Sie mit einem Gespräch. Kein Pitch, keine Vorlage. Nur ein ehrlicher Blick darauf, wo Ihre Rechtsabteilung steht und was KI-Adoption wirklich erfordert.',
+      sub: 'Starten Sie mit einem Gespräch. Kein Pitch, kein Skript. Nur ein ehrlicher Blick darauf, wo Ihre Rechtsabteilung steht und was KI-Adoption wirklich erfordert.',
       btn: 'Gespräch buchen',
     },
     about: {
@@ -351,8 +351,8 @@ const content = {
       role: 'AI Adoption Advisor · Entscheidungsstrukturen · International Legal Counsel',
       bio1: 'Ich arbeite daran, dass KI Teil des Arbeitsalltags wird - so, dass sie zu Verantwortung, Risiko und realen Abläufen passt.',
       bio2: 'Mein Hintergrund verbindet internationale Rechtspraxis, Projektmanagement und die konkrete Einführung von KI in juristischen und operativen Teams. Das prägt, wie ich KI in realen Arbeitsumgebungen gestalte.',
-      bio3: 'Meine Arbeit wird durch eine strukturierte KI-Umgebung unterstützt, die in die täglichen Arbeitsabläufe integriert ist. Ich nutze sie innerhalb klarer Prinzipien, bei denen menschliches Urteilsvermögen und Verantwortung jederzeit sichtbar bleiben.',
-      bio4: 'Ich bringe ein ausgeprägtes Verständnis für rechtliche Risiken, organisationale Realität und die menschliche Seite von Veränderung mit.',
+      bio3: 'Ich arbeite in einer strukturierten KI-Umgebung, die in meine täglichen Arbeitsabläufe integriert ist. Ich setze sie innerhalb klarer Prinzipien ein, bei denen menschliches Urteilsvermögen und Verantwortung stets im Vordergrund stehen.',
+      bio4: 'Ich bringe ein ausgeprägtes Verständnis für rechtliche Risiken, organisatorische Realität und die menschliche Seite von Veränderung mit.',
       linkedin: 'LinkedIn',
       cols: [
         {
@@ -386,7 +386,7 @@ const content = {
           quote: 'Sie bringt tiefes juristisches Fachwissen in jede Diskussion ein, ergänzt durch ausgeprägten Geschäftssinn. Ihre Experimente und Leistungen in KI und Automatisierung bringen erhebliche Effizienzgewinne für unser Unternehmen.',
           name: 'Diogo Chaves',
           title: 'Chief Procurement Officer',
-          company: 'Globales Life-Sciences-Unternehmen',
+          company: 'Globales Pharmaunternehmen',
         },
         {
           quote: 'Sie verbindet starkes juristisches Urteil mit KI-Adoption, um Komplexität zu vereinfachen und Ergebnisse zu beschleunigen. Was Marta auszeichnet, ist ihre außergewöhnlich schnelle KI-Adoption.',
@@ -398,7 +398,7 @@ const content = {
           quote: 'Marta war eine große Förderin der KI-Integration im juristischen und Einkaufsbereich. Sie war eine der Ersten, die KI-Personas entwickelte, mit denen wir Aufgaben schneller erledigen, die Kommunikation verbessern und Unterschiede in Verträgen erkennen konnten. Zusammen mit ihrem juristischen Wissen hat das unser Team stärker gemacht.',
           name: 'Rubi Castro-Williams',
           title: 'Global Procurement Category Director',
-          company: 'Elanco',
+          company: 'Global pharmaceutical company',
         },
       ],
     },
