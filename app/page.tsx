@@ -492,8 +492,8 @@ export default function Page() {
             AI for Legal Teams
           </span>
           <div style={{ borderLeft: '1px solid rgba(184,198,255,0.18)', paddingLeft: '14px', display: 'flex', flexDirection: 'column', gap: '3px' }} className="nav-sub">
-            <span style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.06em', background: HOLO, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>AI Governance &amp; Readiness Advisory</span>
-            <span style={{ fontSize: '12px', fontWeight: 400, color: 'rgba(255,255,255,0.65)', letterSpacing: '0.04em' }}>Marta Schmidl</span>
+            <span style={{ fontSize: '14px', fontWeight: 800, letterSpacing: '0.03em', background: HOLO, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>AI Governance &amp; Readiness Advisory</span>
+            <span style={{ fontSize: '13px', fontWeight: 500, color: 'rgba(255,255,255,0.75)', letterSpacing: '0.03em' }}>Marta Schmidl</span>
           </div>
         </a>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
