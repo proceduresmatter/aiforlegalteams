@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KI Readiness Checkliste — Procedures Matter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Barlow:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: #F9F8F6;
+    color: #1A1A1A;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 40px 64px;
+  }
+
+  .holo-bar {
+    width: 40px; height: 3px;
+    background: linear-gradient(90deg, #B8C6FF, #DCC6FF, #AEE0FF);
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+
+  .brand { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #5E646B; margin-bottom: 8px; }
+
+  h1 {
+    font-family: 'Barlow', system-ui, sans-serif;
+    font-size: 32px; font-weight: 800; line-height: 1.1;
+    letter-spacing: -0.02em; margin-bottom: 8px;
+  }
+
+  .subtitle { font-size: 15px; color: #5E646B; line-height: 1.6; margin-bottom: 32px; max-width: 540px; }
+
+  .divider { height: 1px; background: #E8E6E2; margin: 32px 0; }
+
+  .category { margin-bottom: 32px; }
+
+  .cat-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .cat-num {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: #1A1A1A; color: white;
+    font-size: 11px; font-weight: 800; letter-spacing: 0.05em;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .cat-title { font-family: 'Barlow', system-ui, sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #1A1A1A; }
+
+  .check-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #F0EDE9;
+  }
+  .check-item:last-child { border-bottom: none; }
+
+  .check-box {
+    width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px;
+    border: 2px solid #D8D6D2; border-radius: 4px;
+    cursor: pointer; appearance: none; -webkit-appearance: none;
+    background: white; position: relative;
+  }
+  .check-box:checked { background: #1A1A1A; border-color: #1A1A1A; }
+  .check-box:checked::after {
+    content: ''; position: absolute; left: 3px; top: 0px;
+    width: 5px; height: 9px;
+    border: 2px solid white; border-top: none; border-left: none;
+    transform: rotate(45deg);
+  }
+
+  .check-label { font-size: 13.5px; color: #1A1A1A; line-height: 1.65; cursor: pointer; }
+  .check-item.checked .check-label { color: #9CA3AF; text-decoration: line-through; }
+
+  .score-bar {
+    height: 4px; background: #E8E6E2; border-radius: 2px;
+    margin-top: 4px; overflow: hidden;
+  }
+  .score-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #B8C6FF, #DCC6FF);
+    border-radius: 2px;
+    transition: width 0.3s;
+    width: 0%;
+  }
+  .score-label { font-size: 11px; font-weight: 600; color: #5E646B; margin-top: 4px; }
+
+  .note {
+    background: #F0F2FF; border: 1px solid rgba(99,102,241,0.2);
+    border-radius: 8px; padding: 14px 18px; margin-top: 28px;
+    font-size: 13px; line-height: 1.7; color: #3730A3;
+  }
+  .note strong { display: block; margin-bottom: 4px; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  .footer {
+    margin-top: 40px; padding-top: 24px;
+    border-top: 1px solid #E8E6E2;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 12px;
+    font-size: 11px; color: #9CA3AF;
+  }
+  .footer a { color: #6366F1; text-decoration: none; font-weight: 600; }
+  .footer a:hover { text-decoration: underline; }
+
+  .btn-print {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 8px 16px; border-radius: 7px; border: 1px solid #D8D6D2;
+    background: white; color: #1A1A1A; font-size: 12px; font-weight: 600;
+    cursor: pointer; font-family: inherit;
+  }
+  .btn-print:hover { background: #F0EDE9; }
+
+  @media print {
+    .btn-print, .footer-cta { display: none !important; }
+    body { background: white; }
+    .page { padding: 24px; }
+    .check-box { border: 1.5px solid #999; }
+  }
+
+  @media (max-width: 600px) {
+    .page { padding: 32px 20px 48px; }
+    h1 { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="holo-bar"></div>
+  <div class="brand">Procedures Matter · KI Readiness</div>
+  <h1>Ist Ihre Organisation<br>bereit für KI?</h1>
+  <p class="subtitle">Fünf Bereiche. 17 Fragen. Ein klares Bild, wo Sie stehen und was als nächstes zu tun ist.</p>
+
+  <div style="display:flex;align-items:center;gap:16px;margin-bottom:8px;flex-wrap:wrap;">
+    <div>
+      <div class="score-bar" style="width:200px;"><div class="score-fill" id="scoreBar"></div></div>
+      <div class="score-label" id="scoreLabel">0 von 17 beantwortet</div>
+    </div>
+    <button class="btn-print" onclick="window.print()">&#8998; Drucken / Als PDF speichern</button>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 1. Führung & Strategie -->
+  <div class="category">
+    <div class="cat-header">
+      <div class="cat-num">01</div>
+      <div class="cat-title">Führung &amp; Strategie</div>
+    </div>
+    <div id="cat1">
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">Die Führungsebene versteht grundlegend, was KI kann und was nicht und wo Risiken entstehen.</span></div>
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">Es gibt eine bewusste Entscheidung, welche KI-Tools erlaubt sind und welche nicht.</span></div>
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">Die Verantwortung für KI-Governance ist klar zugewiesen: jemand ist dafür zuständig.</span></div>
+    </div>
+  </div>
+
+  <!-- 2. Daten & Sicherheit -->
+  <div class="category">
+    <div class="cat-header">
+      <div class="cat-num">02</div>
+      <div class="cat-title">Daten &amp; Sicherheit</div>
+    </div>
+    <div id="cat2">
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">Es ist klar, welche Daten in welche KI-Tools eingegeben werden dürfen und welche nicht.</span></div>
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">Die verwendeten KI-Tools wurden auf DSGVO-Konformität geprüft.</span></div>
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">Mitarbeitende wissen, was erlaubt ist und warum.</span></div>
+    </div>
+  </div>
+
+  <!-- 3. KI-Kompetenz (Art. 4 EU KI-Verordnung) -->
+  <div class="category">
+    <div class="cat-header">
+      <div class="cat-num">03</div>
+      <div class="cat-title">KI-Kompetenz &nbsp;<span style="font-size:10px;font-weight:500;color:#9CA3AF;text-transform:none;letter-spacing:0;">Art. 4 EU KI-Verordnung</span></div>
+    </div>
+    <div id="cat3">
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">Es gibt einen Überblick, wer in der Organisation KI wofür nutzt.</span></div>
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">Mitarbeitende verstehen, wie KI-Ergebnisse entstehen und wo Fehler wahrscheinlich sind.</span></div>
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">Es gibt klare Leitlinien, wann KI eingesetzt werden darf und wann menschliches Urteil erforderlich ist.</span></div>
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">KI-Ergebnisse werden geprüft, nicht einfach weitergeleitet.</span></div>
+    </div>
+  </div>
+
+  <!-- 4. Prozesse & Verantwortlichkeit -->
+  <div class="category">
+    <div class="cat-header">
+      <div class="cat-num">04</div>
+      <div class="cat-title">Prozesse &amp; Verantwortlichkeit</div>
+    </div>
+    <div id="cat4">
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">Es ist dokumentiert, wo KI in der Organisation eingesetzt wird.</span></div>
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">Es gibt definierte Kontrollpunkte, an denen Menschen die Verantwortung für Entscheidungen behalten.</span></div>
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">Es ist klar, wer verantwortlich ist, wenn ein KI-Ergebnis falsch ist und darauf gehandelt wurde.</span></div>
+    </div>
+  </div>
+
+  <!-- 5. Wettbewerbsposition -->
+  <div class="category">
+    <div class="cat-header">
+      <div class="cat-num">05</div>
+      <div class="cat-title">Wettbewerbsposition</div>
+    </div>
+    <div id="cat5">
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">Sie wissen, welche KI-Tools Ihre direkten Wettbewerber bereits einsetzen.</span></div>
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">Sie haben konkrete Anwendungsfälle identifiziert, bei denen KI Ihnen heute einen messbaren Vorteil bringt.</span></div>
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">Ihre Teams sind in der Lage, mit KI zu arbeiten oder Sie haben einen Plan, das zu erreichen.</span></div>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>Was Ihr Ergebnis bedeutet</strong>
+    Weniger als 8: Ihre Organisation hat erhebliche Lücken. Das Risiko unkontrollierten KI-Einsatzes und Compliance-Probleme sind hoch. 8 bis 12: Eine Grundlage ist vorhanden, aber Governance- und Prozesslücken müssen adressiert werden. 13 bis 17: Starke Ausgangslage. Jetzt geht es darum, das Vorhandene zu skalieren und zu verankern.
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="footer">
+    <div>
+      <div style="font-weight:700;font-size:12px;margin-bottom:2px;">Procedures Matter</div>
+      <div>KI Governance &amp; Readiness Advisory by Marta Schmidl</div>
+    </div>
+    <div style="text-align:right;">
+      <a href="https://www.proceduresmatter.com" class="footer-cta">Gespräch buchen &rarr;</a>
+      <div style="margin-top:4px;"><a href="https://www.proceduresmatter.com">proceduresmatter.com</a></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const total = 17;
+function update(cb) {
+  const item = cb.closest('.check-item');
+  if (cb.checked) item.classList.add('checked');
+  else item.classList.remove('checked');
+  const checked = document.querySelectorAll('.check-box:checked').length;
+  document.getElementById('scoreBar').style.width = (checked / total * 100) + '%';
+  document.getElementById('scoreLabel').textContent = checked + ' von ' + total + ' beantwortet';
+}
+</script>
+
+</body>
+</html>

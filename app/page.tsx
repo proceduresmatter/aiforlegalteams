@@ -162,6 +162,17 @@ const content = {
       sub: 'Start with a conversation. No pitch, no script. Just an honest look at where your legal department is and what AI adoption actually requires.',
       btn: 'Book a conversation',
     },
+    checklistSignup: {
+      label: 'Want to check your readiness first?',
+      heading: 'AI Readiness Checklist for Legal Teams',
+      sub: '17 questions across 5 areas. A clear picture of where your legal department stands on AI.',
+      teasers: [],
+      placeholder: 'your@email.com',
+      button: 'Send me the checklist',
+      sending: 'Sending...',
+      successBody: 'Open the checklist here:',
+      link: 'AI Readiness Checklist',
+    },
     about: {
       label: 'About me',
       role: 'AI Adoption Advisor · Decision Structures · International Legal Counsel',
@@ -346,6 +357,17 @@ const content = {
       sub: 'Starten Sie mit einem Gespräch. Kein Pitch, kein Skript. Nur ein ehrlicher Blick darauf, wo Ihre Rechtsabteilung steht und was KI-Adoption wirklich erfordert.',
       btn: 'Gespräch buchen',
     },
+    checklistSignup: {
+      label: 'Erst selbst einschätzen?',
+      heading: 'KI Readiness Checkliste für Rechtsteams',
+      sub: '17 Fragen in 5 Bereichen. Ein klares Bild, wo Ihre Rechtsabteilung beim Thema KI steht.',
+      teasers: [],
+      placeholder: 'ihre@email.com',
+      button: 'Checkliste zusenden',
+      sending: 'Wird gesendet...',
+      successBody: 'Die Checkliste ist direkt zugänglich:',
+      link: 'KI Readiness Checkliste öffnen',
+    },
     about: {
       label: 'Über mich',
       role: 'AI Adoption Advisor · Entscheidungsstrukturen · International Legal Counsel',
@@ -411,6 +433,8 @@ export default function Page() {
   const [scrolled, setScrolled] = useState(false)
   const [icebergVisible, setIcebergVisible] = useState(false)
   const icebergRef = useRef<HTMLDivElement>(null)
+  const [checklistEmail, setChecklistEmail] = useState('')
+  const [checklistStatus, setChecklistStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
 
   useEffect(() => {
     const storedLm = localStorage.getItem('aflt-lm')
@@ -463,13 +487,14 @@ export default function Page() {
         background: 'rgba(8,13,24,0.92)', backdropFilter: 'blur(16px)',
         borderBottom: '1px solid rgba(184,198,255,0.12)',
       }}>
-        <a href="https://www.aiforlegalteams.com" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
-          <span style={{ fontFamily: 'var(--font-barlow)', fontSize: '15px', fontWeight: 700, color: '#F5F3EF', letterSpacing: '0.03em' }}>
+        <a href="https://www.aiforlegalteams.com" style={{ display: 'flex', alignItems: 'center', gap: '14px', textDecoration: 'none' }}>
+          <span style={{ fontFamily: 'var(--font-barlow)', fontSize: '15px', fontWeight: 700, color: '#F5F3EF', letterSpacing: '0.03em', flexShrink: 0 }}>
             AI for Legal Teams
           </span>
-          <span className="nav-sub" style={{ fontSize: '12px', color: 'rgba(184,198,255,0.6)', paddingLeft: '10px', borderLeft: '1px solid rgba(184,198,255,0.2)' }}>
-            by Procedures Matter
-          </span>
+          <div style={{ borderLeft: '1px solid rgba(184,198,255,0.18)', paddingLeft: '14px', display: 'flex', flexDirection: 'column', gap: '3px' }} className="nav-sub">
+            <span style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.06em', background: HOLO, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>AI Governance &amp; Readiness Advisory</span>
+            <span style={{ fontSize: '12px', fontWeight: 400, color: 'rgba(255,255,255,0.65)', letterSpacing: '0.04em' }}>Marta Schmidl</span>
+          </div>
         </a>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <a href="https://www.proceduresmatter.com/#booking" className="nav-book-btn" style={{
@@ -855,6 +880,92 @@ export default function Page() {
           }}>
             {c.cta.btn} <span style={{ fontSize: '20px' }}>&#8594;</span>
           </a>
+
+          {/* Checklist lead-gen */}
+          <div style={{
+            maxWidth: '520px', margin: '48px auto 0',
+            padding: '32px 28px',
+            borderRadius: '12px',
+            background: lm ? '#FFFFFF' : 'rgba(184,198,255,0.05)',
+            border: lm ? '1px solid rgba(26,26,26,0.1)' : '1px solid rgba(184,198,255,0.18)',
+            textAlign: 'left',
+          }}>
+            <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: lm ? '#6366F1' : '#B8C6FF', marginBottom: '10px' }}>
+              {c.checklistSignup.label}
+            </p>
+            <p style={{ fontFamily: 'var(--font-barlow)', fontSize: '20px', fontWeight: 800, color: ink, letterSpacing: '-0.01em', marginBottom: '8px', lineHeight: 1.2 }}>
+              {c.checklistSignup.heading}
+            </p>
+            <p style={{ fontSize: '13.5px', color: inkMuted, lineHeight: 1.6, marginBottom: '20px' }}>
+              {c.checklistSignup.sub}
+            </p>
+            {checklistStatus === 'sent' ? (
+              <div>
+                <p style={{ fontSize: '14px', fontWeight: 600, color: ink, marginBottom: '12px' }}>
+                  {c.checklistSignup.successBody}
+                </p>
+                <a href={lang === 'de' ? '/ki-readiness-checkliste.html' : '/ai-readiness-checklist.html'} target="_blank" rel="noopener noreferrer" style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '8px',
+                  fontSize: '14px', fontWeight: 700, fontFamily: 'var(--font-barlow)',
+                  letterSpacing: '0.04em', color: '#1A1A1A', background: HOLO,
+                  padding: '12px 22px', borderRadius: '7px', textDecoration: 'none',
+                }}>
+                  {c.checklistSignup.link} →
+                </a>
+              </div>
+            ) : (
+              <form
+                onSubmit={async (e) => {
+                  e.preventDefault()
+                  setChecklistStatus('sending')
+                  try {
+                    const res = await fetch('/api/checklist', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ email: checklistEmail, lang, site: 'aiforlegalteams' }),
+                    })
+                    if (res.ok) setChecklistStatus('sent')
+                    else setChecklistStatus('error')
+                  } catch {
+                    setChecklistStatus('error')
+                  }
+                }}
+                style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}
+              >
+                <input
+                  type="email"
+                  required
+                  placeholder={c.checklistSignup.placeholder}
+                  value={checklistEmail}
+                  onChange={e => setChecklistEmail(e.target.value)}
+                  style={{
+                    flex: '1', minWidth: '180px', height: '46px', padding: '0 14px',
+                    borderRadius: '7px', border: lm ? '1px solid rgba(26,26,26,0.2)' : '1px solid rgba(184,198,255,0.2)',
+                    background: lm ? '#F9F8F6' : 'rgba(184,198,255,0.04)', color: ink, fontSize: '14px', outline: 'none',
+                    fontFamily: 'var(--font-inter)',
+                  }}
+                />
+                <button
+                  type="submit"
+                  disabled={checklistStatus === 'sending'}
+                  style={{
+                    height: '46px', padding: '0 20px', borderRadius: '7px', border: 'none',
+                    background: HOLO, color: '#1A1A1A',
+                    fontFamily: 'var(--font-barlow)', fontSize: '14px', fontWeight: 700,
+                    letterSpacing: '0.04em', cursor: checklistStatus === 'sending' ? 'not-allowed' : 'pointer',
+                    opacity: checklistStatus === 'sending' ? 0.7 : 1, whiteSpace: 'nowrap',
+                  }}
+                >
+                  {checklistStatus === 'sending' ? c.checklistSignup.sending : c.checklistSignup.button}
+                </button>
+                {checklistStatus === 'error' && (
+                  <p style={{ width: '100%', fontSize: '12px', color: '#e05a5a', marginTop: '4px' }}>
+                    {lang === 'en' ? 'Something went wrong. Please try again.' : 'Etwas ist schiefgelaufen. Bitte erneut versuchen.'}
+                  </p>
+                )}
+              </form>
+            )}
+          </div>
         </FadeUp>
       </section>
 

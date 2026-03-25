@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Readiness Checklist — Procedures Matter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Barlow:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: #F9F8F6;
+    color: #1A1A1A;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 40px 64px;
+  }
+
+  /* Header */
+  .holo-bar {
+    width: 40px; height: 3px;
+    background: linear-gradient(90deg, #B8C6FF, #DCC6FF, #AEE0FF);
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+
+  .brand { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #5E646B; margin-bottom: 8px; }
+
+  h1 {
+    font-family: 'Barlow', system-ui, sans-serif;
+    font-size: 32px; font-weight: 800; line-height: 1.1;
+    letter-spacing: -0.02em; margin-bottom: 8px;
+  }
+
+  .subtitle { font-size: 15px; color: #5E646B; line-height: 1.6; margin-bottom: 32px; max-width: 540px; }
+
+  .divider { height: 1px; background: #E8E6E2; margin: 32px 0; }
+
+  /* Category */
+  .category { margin-bottom: 32px; }
+
+  .cat-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .cat-num {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: #1A1A1A; color: white;
+    font-size: 11px; font-weight: 800; letter-spacing: 0.05em;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .cat-title { font-family: 'Barlow', system-ui, sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #1A1A1A; }
+
+  /* Check item */
+  .check-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #F0EDE9;
+  }
+  .check-item:last-child { border-bottom: none; }
+
+  .check-box {
+    width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px;
+    border: 2px solid #D8D6D2; border-radius: 4px;
+    cursor: pointer; appearance: none; -webkit-appearance: none;
+    background: white; position: relative;
+  }
+  .check-box:checked { background: #1A1A1A; border-color: #1A1A1A; }
+  .check-box:checked::after {
+    content: ''; position: absolute; left: 3px; top: 0px;
+    width: 5px; height: 9px;
+    border: 2px solid white; border-top: none; border-left: none;
+    transform: rotate(45deg);
+  }
+
+  .check-label { font-size: 13.5px; color: #1A1A1A; line-height: 1.65; cursor: pointer; }
+  .check-item.checked .check-label { color: #9CA3AF; text-decoration: line-through; }
+
+  /* Score */
+  .score-bar {
+    height: 4px; background: #E8E6E2; border-radius: 2px;
+    margin-top: 4px; overflow: hidden;
+  }
+  .score-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #B8C6FF, #DCC6FF);
+    border-radius: 2px;
+    transition: width 0.3s;
+    width: 0%;
+  }
+  .score-label { font-size: 11px; font-weight: 600; color: #5E646B; margin-top: 4px; }
+
+  /* Note box */
+  .note {
+    background: #F0F2FF; border: 1px solid rgba(99,102,241,0.2);
+    border-radius: 8px; padding: 14px 18px; margin-top: 28px;
+    font-size: 13px; line-height: 1.7; color: #3730A3;
+  }
+  .note strong { display: block; margin-bottom: 4px; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* Footer */
+  .footer {
+    margin-top: 40px; padding-top: 24px;
+    border-top: 1px solid #E8E6E2;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 12px;
+    font-size: 11px; color: #9CA3AF;
+  }
+  .footer a { color: #6366F1; text-decoration: none; font-weight: 600; }
+  .footer a:hover { text-decoration: underline; }
+
+  .btn-print {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 8px 16px; border-radius: 7px; border: 1px solid #D8D6D2;
+    background: white; color: #1A1A1A; font-size: 12px; font-weight: 600;
+    cursor: pointer; font-family: inherit;
+  }
+  .btn-print:hover { background: #F0EDE9; }
+
+  @media print {
+    .btn-print, .footer-cta { display: none !important; }
+    body { background: white; }
+    .page { padding: 24px; }
+    .check-box { border: 1.5px solid #999; }
+  }
+
+  @media (max-width: 600px) {
+    .page { padding: 32px 20px 48px; }
+    h1 { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="holo-bar"></div>
+  <div class="brand">Procedures Matter · AI Readiness</div>
+  <h1>Is your organisation<br>ready for AI?</h1>
+  <p class="subtitle">Five areas. 17 questions. A clear picture of where you stand — and what to do next.</p>
+
+  <div style="display:flex;align-items:center;gap:16px;margin-bottom:8px;flex-wrap:wrap;">
+    <div>
+      <div class="score-bar" style="width:200px;"><div class="score-fill" id="scoreBar"></div></div>
+      <div class="score-label" id="scoreLabel">0 of 17 checked</div>
+    </div>
+    <button class="btn-print" onclick="window.print()">⎙ Print / Save as PDF</button>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 1. Leadership & Strategy -->
+  <div class="category">
+    <div class="cat-header">
+      <div class="cat-num">01</div>
+      <div class="cat-title">Leadership &amp; Strategy</div>
+    </div>
+    <div id="cat1">
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">Leadership has a basic understanding of what AI can and cannot do — and where risks arise.</span></div>
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">There is a conscious decision about which AI tools are permitted — and which are not.</span></div>
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">Responsibility for AI governance is clearly assigned: someone owns it.</span></div>
+    </div>
+  </div>
+
+  <!-- 2. Data & Security -->
+  <div class="category">
+    <div class="cat-header">
+      <div class="cat-num">02</div>
+      <div class="cat-title">Data &amp; Security</div>
+    </div>
+    <div id="cat2">
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">It is clear which data may be entered into which AI tools — and which may not.</span></div>
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">The AI tools in use have been checked for GDPR compliance.</span></div>
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">Employees know what is permitted — and why.</span></div>
+    </div>
+  </div>
+
+  <!-- 3. AI Competency (Art. 4 EU AI Act) -->
+  <div class="category">
+    <div class="cat-header">
+      <div class="cat-num">03</div>
+      <div class="cat-title">AI Competency &nbsp;<span style="font-size:10px;font-weight:500;color:#9CA3AF;text-transform:none;letter-spacing:0;">Art. 4 EU AI Act</span></div>
+    </div>
+    <div id="cat3">
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">There is an overview of who uses AI for what across the organisation.</span></div>
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">Employees understand how AI outputs are generated — and where errors are likely.</span></div>
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">There are clear guidelines for when AI may be used and when human judgment is required.</span></div>
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">AI outputs are reviewed — not just forwarded.</span></div>
+    </div>
+  </div>
+
+  <!-- 4. Processes & Accountability -->
+  <div class="category">
+    <div class="cat-header">
+      <div class="cat-num">04</div>
+      <div class="cat-title">Processes &amp; Accountability</div>
+    </div>
+    <div id="cat4">
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">It is documented where AI is used in the organisation.</span></div>
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">There are defined checkpoints where humans remain responsible for decisions.</span></div>
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">It is clear who is accountable if an AI output is incorrect and acted upon.</span></div>
+    </div>
+  </div>
+
+  <!-- 5. Competitive Position -->
+  <div class="category">
+    <div class="cat-header">
+      <div class="cat-num">05</div>
+      <div class="cat-title">Competitive Position</div>
+    </div>
+    <div id="cat5">
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">You know which AI tools your direct competitors are already using.</span></div>
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">You have identified concrete use cases where AI would give you a measurable advantage today.</span></div>
+      <div class="check-item"><input type="checkbox" class="check-box" onchange="update(this)"><span class="check-label">Your teams are equipped to work with AI — or you have a plan to get there.</span></div>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>What your score means</strong>
+    Fewer than 8 checked: Your organisation has significant gaps — the risk of uncontrolled AI use and compliance exposure is high. 8–12: A foundation exists, but governance and process gaps need to be addressed. 13–17: Strong readiness. The focus now is on scaling and embedding what works.
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="footer">
+    <div>
+      <div style="font-weight:700;font-size:12px;margin-bottom:2px;">Procedures Matter</div>
+      <div>AI Governance &amp; Readiness Advisory by Marta Schmidl</div>
+    </div>
+    <div style="text-align:right;">
+      <a href="https://www.proceduresmatter.com" class="footer-cta">Book a conversation →</a>
+      <div style="margin-top:4px;"><a href="https://www.proceduresmatter.com">proceduresmatter.com</a></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const total = 17;
+function update(cb) {
+  const item = cb.closest('.check-item');
+  if (cb.checked) item.classList.add('checked');
+  else item.classList.remove('checked');
+  const checked = document.querySelectorAll('.check-box:checked').length;
+  document.getElementById('scoreBar').style.width = (checked / total * 100) + '%';
+  document.getElementById('scoreLabel').textContent = checked + ' of ' + total + ' checked';
+}
+</script>
+
+</body>
+</html>
